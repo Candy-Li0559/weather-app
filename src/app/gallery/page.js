@@ -46,7 +46,7 @@ export default function GalleryScrollPage() {
       sections.forEach((sec, i) => {
         const rect = sec.getBoundingClientRect();
         const diff = Math.abs(
-          rect.top + rect.height / 2 - containerRef.current.innerHeight / 2
+          rect.top + rect.height / 2 - containerRef.current?.innerHeight / 2
         );
         if (diff < minDiff) {
           minDiff = diff;
@@ -83,10 +83,10 @@ export default function GalleryScrollPage() {
           const isActive = i === visibleIndex;
           const opacity = isActive ? 1 : 0;
           const translateLeft = isActive
-            ? (mouseX - containerRef.current.innerWidth / 1.5) * -0.1
+            ? (mouseX - containerRef.current?.innerWidth / 1.5) * -0.1
             : 0;
           const translateRight = isActive
-            ? (mouseX - containerRef.current.innerWidth / 1.5) * 0.1
+            ? (mouseX - containerRef.current?.innerWidth / 1.5) * 0.1
             : 0;
 
           return (
@@ -103,7 +103,7 @@ export default function GalleryScrollPage() {
                 style={{
                   transform: isActive
                     ? `translateX(${
-                        (mouseX - containerRef.current.innerWidth / 2) * 0.01
+                        (mouseX - containerRef.current?.innerWidth / 2) * 0.01
                       }px) scale(1.05)`
                     : "scale(0.9)",
                   opacity: isActive ? 1 : 0.3,
